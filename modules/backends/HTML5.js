@@ -173,9 +173,9 @@ var HTML5 = {
     window.removeEventListener('drop', handleTopDrop);
   },
 
-  beginDrag(component, e, containerNode, dragPreview, dragAnchors, offsetFromContainer, effectsAllowed) {
+  beginDrag(component, e, containerNode, dragPreview, dragAnchors, offsetFromContainer, effectsAllowed, dragOffset) {
     var { nativeEvent: { dataTransfer, target } } = e;
-    configureDataTransfer(dataTransfer, containerNode, dragPreview, dragAnchors, offsetFromContainer, effectsAllowed);
+    configureDataTransfer(dataTransfer, containerNode, dragPreview, dragAnchors, offsetFromContainer, effectsAllowed, dragOffset);
 
     _currentComponent = component;
     _currentDragTarget = target;
