@@ -181,6 +181,7 @@ function createDragDropMixin(backend) {
       var item = _beginDrag.item;
       var dragPreview = _beginDrag.dragPreview;
       var dragAnchors = _beginDrag.dragAnchors;
+      var dragOffset = _beginDrag.dragOffset;
       var effectsAllowed = _beginDrag.effectsAllowed;
       var containerNode = this.getDOMNode();
       var containerRect = containerNode.getBoundingClientRect();
@@ -205,7 +206,7 @@ function createDragDropMixin(backend) {
       invariant(isArray(effectsAllowed) && effectsAllowed.length > 0, "Expected effectsAllowed to be non-empty array");
       invariant(isObject(item), "Expected return value of beginDrag to contain \"item\" object");
 
-      backend.beginDrag(this, e, containerNode, dragPreview, dragAnchors, offsetFromContainer, effectsAllowed);
+      backend.beginDrag(this, e, containerNode, dragPreview, dragAnchors, offsetFromContainer, effectsAllowed, dragOffset);
       DragDropActionCreators.startDragging(type, item, effectsAllowed, offsetFromClient, offsetFromContainer);
 
       // Delay setting own state by a tick so `getDragState(type).isDragging`
